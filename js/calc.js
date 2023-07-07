@@ -10,7 +10,6 @@ const action = ['/', 'sqrt', '*', '%', '-', '1/x', '+'];
 //экран
 const out = document.querySelector('.calc-screen p');
 
-
 //AC
 function clearAll() {
     a = '';//first number
