@@ -1,0 +1,223 @@
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+    padding-left: 0;
+}
+
+@font-face {
+    font-family: Tahoma;
+    src: url(/font/windows-xp-tahoma.ttf);
+}
+
+html {
+    font-family: Tahoma;
+    box-sizing: border-box;
+}
+
+body {
+    background: url(images/windows-xp-bg.jpg);
+    -moz-background-size: 100%;
+    /* Firefox 3.6+ */
+    -webkit-background-size: 100%;
+    /* Safari 3.1+ и Chrome 4.0+ */
+    -o-background-size: 100%;
+    /* Opera 9.6+ */
+    background-size: 100%;
+    /* Современные браузеры */
+    background-size: 100% auto;
+}
+
+.calc {
+    margin-top: 250px;
+    margin-left: 500px;
+    position: relative;
+    /* Относительное позиционирование */
+    width: 260px;
+    /* Ширина слоя */
+    height: 260px;
+    /* Высота слоя */
+}
+
+.bar {
+    height: 29px;
+}
+
+.button-items {
+    position: absolute;
+    display: flex;
+    height: auto;
+    width: auto;
+    flex-wrap: wrap;
+    top: 4px;
+    /* Расстояние от верхнего края */
+    left: 190px;
+    /* Расстояние от левого края */
+}
+
+.button-item {
+    margin-right: 1px;
+}
+
+a.button-disabled {
+    pointer-events: none;
+    /* делаем элемент неактивным для взаимодействия */
+    cursor: default;
+    /*  курсор в виде стрелки */
+    margin-right: 1px;
+}
+
+.window {
+    position: absolute;
+    width: 260px;
+    /* Ширина слоя */
+    height: 231px;
+    /* Высота слоя */
+    background-color: #ECE9D8;
+    background-image: url(/images/Menu/window.svg);
+}
+
+.menu-items {
+    position: absolute;
+    margin-left: 4px;
+    margin-top: 4px;
+}
+
+.menu-item {
+    margin: 4px;
+}
+
+.stroke {
+    position: absolute;
+    width: 254px;
+    height: 1px;
+    left: 3px;
+    top: 19px;
+    background-color: white;
+}
+
+a.menu-item:hover {
+    filter: invert(100%);
+    background: #D6892D
+}
+
+a.button-item:hover {
+    filter: brightness(1.3);
+}
+
+.calc-screen {
+    text-align: right;
+    width: 237px;
+    height: 21px;
+    display: flexbox;
+    margin-left: 11px;
+    margin-top: 23px;
+    font-family: Tahoma;
+    border-color: #7f9dba;
+    background: #FFFFFF;
+    border: 1px solid #7F9DB9;
+    font-family: Tahoma;
+    font-size: 15px;
+    border-width: 1px;
+    display: flexbox;
+    margin-right: 5px;
+    margin-bottom: 7px;
+    padding-right: 7px;
+    padding-top: 2px;
+    justify-items: right;
+    align-items: end;
+}
+
+.buttons {
+    display: flexbox;
+    position: absolute;
+    left: 59px;
+    top: 96px;
+    width: 200px;
+    height: 123px;
+}
+
+.btn {
+    width: 32px;
+    height: 25px;
+    background-color: #f3f3f1;
+    font-family: Tahoma;
+    font-size: 15px;
+    color: #004CFF;
+    border-color: #003C74;
+    border-radius: 3.5px;
+    text-align: center;
+    border-width: 1px;
+    display: flexbox;
+    margin-right: 5px;
+    margin-bottom: 7px;
+    box-shadow: 1px 1px 0px 0px #faf9f5;
+}
+.btn:hover{
+    filter: brightness(120%);
+}
+
+.red {
+    width: 32px;
+    height: 25px;
+    background-color: #f3f3f1;
+    font-family: Tahoma;
+    font-size: 15px;
+    color: #ff0000;
+    border-color: #003C74;
+    border-radius: 3.5px;
+    text-align: center;
+    border-width: 1px;
+    display: flexbox;
+    margin-right: 5px;
+    margin-bottom: 7px;
+    box-shadow: 1px 1px 0px 0px #faf9f5;
+}
+
+.left-buttons {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    left: 13px;
+    top: 96px;
+    width: auto;
+    height: auto;
+}
+
+.top-buttons {
+    display: flex;
+    position: absolute;
+    left: 59px;
+    top: 59px;
+    width: auto;
+    height: auto;
+}
+
+.big {
+    width: 59px;
+    height: 25px;
+    background-color: #f3f3f1;
+    font-family: Tahoma;
+    font-size: 15px;
+    color: #ff0000;
+    border-color: #003C74;
+    border-radius: 3.5px;
+    text-align: center;
+    border-width: 1px;
+    display: flexbox;
+    margin-right: 5px;
+    margin-bottom: 7px;
+    box-shadow: 1px 1px 0px 0px #faf9f5;
+}
+
+.idk {
+    position: absolute;
+    width: 27px;
+    height: 26px;
+    left: 15px;
+    top: 59px;
+    background: #ECE9D8;
+    box-shadow: inset -1px -1px 1px #FFFFFF, inset 1px 1px 1px rgba(0, 0, 0, 0.5);
+}
