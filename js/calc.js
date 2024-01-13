@@ -1,38 +1,82 @@
-let a = '';//first number
-let b = '';//second number
-let sign = '';//знак операции
-let finish = false;
-
-const digit = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '.'];
-const action = ['/', 'sqrt', '*', '%', '-', '1/x', '+'];
-
-//экран
-const out = document.querySelector('.calc-screen p');
-
-// hi computer sience
-//AC
-function clearAll() {
-    a = '';//first number
-    b = '';//second number
-    sign = '';//знак операции
-    finish = false;
-    out.textContent = 0
+function insert(num){
+    document.form.textview.value = document.form.textview.value + num;
+}
+function clean() {
+    document.form.textview.value = "";
 }
 
-document.querySelector(".ac").onclick = clearAll;
-document.querySelector(".buttons, .top-buttons, .left-buttons").onclick = (event) => {
-    //нажата не кнопка
-    if (!event.target.classList.contains('btn')) return;
-    //нажата кнопка C
-    if (event.target.classList.contains('c')) return;
+function back() {
+    var exp = document.form.textview.value;
+    document.form.textview.value = exp.substring(0,exp.length-1);
+}
 
-    out.textContent = '';
-    //получаю нажатую кнопку
-    const key = event.target.textContent
-
-    //если нажата кнопка 0-9 или .
-    if (digit.includes(key)) {
-        a += key;
-        console.log(a, b, sign);
+function equal() {
+    var exp = document.form.textview.value;
+    if(exp) {
+        document.form.textview.value = eval(exp);
     }
 }
+
+function sqrt() {
+    var sq = document.form.textview.value;
+    if(sq) {
+        document.form.textview.value = eval(Math.sqrt(sq));
+    }
+}
+
+function onediv() {
+    var od = document.form.textview.value;
+    if(od) {
+        document.form.textview.value = eval(1/od);
+    }
+}
+
+function cos() {
+    var co = document.form.textview.value;
+    if(co) {
+        document.form.textview.value = eval(Math.cos(co));
+    }
+}
+
+function sin() {
+    var si = document.form.textview.value;
+    if(si) {
+        document.form.textview.value = eval(Math.sin(si));
+    }
+}
+
+function tg() {
+    var tg = document.form.textview.value;
+    if(tg) {
+        document.form.textview.value = eval(Math.tan(tg));
+    }
+}
+
+function ctg() {
+    var ct = document.form.textview.value;
+    if(ct) {
+        document.form.textview.value = eval(1/Math.tan(ct));
+    }
+}
+
+function ce() {
+    onclick="str = document.form.textview.value.slice(0, -1);document.form.textview.value = str;"
+}
+
+function pressNum(num) { // when you press a number key
+    if (displayCleared) { // has the "CE" button been pressed?
+      screenTotal = num; // then make screenTotal = new entry
+      displayCleared = false; // now forget about it
+    } else {
+      screenTotal = screenTotal + num; // otherwise, add the new entry to the end of screenTotal
+    }
+    display.innerHTML = screenTotal;
+    if (carryOver) {
+      num1 = carryNum;
+      num2 = screenTotal + num;
+      display.innerHTML = screenTotal;
+      carryOver = false;
+    }
+  };
+
+  
