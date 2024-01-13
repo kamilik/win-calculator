@@ -6,73 +6,121 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script language="JavaScript" type="text/javascript" src="/js/calc.js"></script>
+    <script language="JavaScript" type="text/javascript" src="/js/interface.js"></script>
+    <script language="JavaScript" type="text/javascript" src="/js/buttons.js"></script>
     <link rel="icon" type="image/x-icon" href="/images/Bar/Calculator%20Icon.svg">
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 
 <body>
-    <div class="calc">
+    <div class="calc" id="calc_window">
         <div class="bar">
             <img src="/images/Bar/App Bar.svg" alt="app-bar">
             <div class="bar-buttons">
                 <div class="button-items">
-                    <a href="#" class="button-item"><img src="/images/Bar/Button1.svg" alt="hide"></a>
+                    <a href="#" class="button-item"><img src="/images/Bar/Button1.svg" alt="hide" id="hide_button"></a>
                     <a href="#" class="button-disabled"><img src="/images/Bar/Button2.svg" alt="full"></a>
-                    <a href="#" class="button-item"><img src="/images/Bar/Button3.svg" alt="close"></a>
+                    <div class="button-item"><img src="/images/Bar/Button3.svg" alt="close" id="close_button"></div>
                 </div>
             </div>
         </div>
         <div class="window">
             <div class="menu">
                 <div class="menu-items">
-                    <a href="#" class="menu-item"><img src="/images/Menu/Edit.svg" alt="hide"></a>
-                    <a href="#" class="menu-item"><img src="/images/Menu/View.svg" alt="hide"></a>
-                    <a href="#" class="menu-item"><img src="/images/Menu/Help.svg" alt="hide"></a>
+                    <a href="#" class="menu-item item1"><img src="/images/Menu/Edit.svg" alt="hide"></a>
+                    <a href="#" class="menu-item item2"><img src="/images/Menu/View.svg" alt="hide"></a>
+                    <a href="#" class="menu-item item3"><img src="/images/Menu/Help.svg" alt="hide"></a>
                 </div>
+
                 <div class="stroke"></div>
             </div>
             <div class="calc-screen">
-                <p>0</p>
+                <div class="input">
+                    <form name="form"><input type="text" name="textview" readonly></form>
+                </div>
+
             </div>
             <div class="idk"></div>
             <div id="btns" class="top-buttons">
-                <button class="btn backspace red big">Backspace</button>
-                <button class="btn ce red big">CE</button>
-                <button class="btn ac red big">C</button>
+                <button class="btn backspace red big" onclick="back()">Backspace</button>
+                <button class="btn ce red big" onclick="ce('')">CE</button>
+                <button class="btn ac red big" onclick="clean()">C</button>
             </div>
             <div id="btns" class="left-buttons">
-                <button class="btn mc red">MC</button>
-                <button class="btn mr red">MR</button>
-                <button class="btn ms red">MS</button>
-                <button class="btn m+ red">M+</button>
+                <button class="btn cos red" onclick="cos('')">cos</button>
+                <button class="btn sin red" onclick="sin('')">sin</button>
+                <button class="btn tg red" onclick="tg('')">tg</button>
+                <button class="btn ctg red" onclick="ctg('')">ctg</button>
             </div>
             <div id="btns" class="buttons">
-                <button class="btn seven blue">7</button>
-                <button class="btn eight blue">8</button>
-                <button class="btn nine blue">9</button>
-                <button class="btn divide red">/</button>
-                <button class="btn sqrt blue">sqrt</button><br>
+                <button class="btn seven blue" onclick="insert('7')">7</button>
+                <button class="btn eight blue" onclick="insert('8')">8</button>
+                <button class="btn nine blue" onclick="insert('9')">9</button>
+                <button class="btn divide red" onclick="insert('/')">/</button>
+                <button class="btn dot blue" onclick="insert('.')">.</button><br>
 
-                <button class="btn four blue">4</button>
-                <button class="btn five blue">5</button>
-                <button class="btn six blue">6</button>
-                <button class="btn multiply red">*</button>
-                <button class="btn percent blue">%</button><br>
+                <button class="btn four blue" onclick="insert('4')">4</button>
+                <button class="btn five blue" onclick="insert('5')">5</button>
+                <button class="btn six blue" onclick="insert('6')">6</button>
+                <button class="btn multiply red" onclick="insert('*')">*</button>
+                <button class="btn sqrt blue" onclick="sqrt()">sqrt</button><br>
 
+                <button class="btn one blue" onclick="insert('1')">1</button>
+                <button class="btn two blue" onclick="insert('2')">2</button>
+                <button class="btn three blue" onclick="insert('3')">3</button>
+                <button class="btn minus red" onclick="insert('-')">-</button>
+                <button class="btn one-divide blue" onclick="onediv('')">1/x</button><br>
 
-                <button class="btn one blue">1</button>
-                <button class="btn two blue">2</button>
-                <button class="btn three blue">3</button>
-                <button class="btn minus red">-</button>
-                <button class="btn one-divide blue">1/x</button><br>
-
-                <button class="btn zero blue">0</button>
-                <button class="btn plus-minus blue">+/-</button>
-                <button class="btn dot blue">.</button>
-                <button class="btn plus red">+</button>
-                <button class="btn equal red">=</button><br>
+                <button class="btn zero blue" onclick="insert('0')">0</button>
+                <button class="btn plus-minus blue" onclick="insert('(')">(</button>
+                <button class="btn dot blue" onclick="insert(')')">)</button>
+                <button class="btn plus red" onclick="insert('+')">+</button>
+                <button class="btn equal red" onclick="equal()">=</button><br>
 
             </div>
+        </div>
+    </div>
+
+
+    <script>
+        //hide button
+        var close_button = document.getElementById("close_button");
+        var calc_window = document.getElementById("calc_window");
+
+        close_button.addEventListener("click", function () {
+            calc_window.style.display = "none";
+        });
+        //close button
+        var hide_button = document.getElementById("hide_button");
+        var calc_window = document.getElementById("calc_window");
+
+        hide_button.addEventListener("click", function () {
+            calc_window.style.display = "none";
+        });
+
+
+    </script>
+
+    <footer class="windows-bar">
+        <img class="windows-start-btn" src="images/Windows/start-menu.png">
+        <div class="windows-tray">
+            <div class="windows-icons">
+                <img src="/images/Windows/volume.png" alt="">
+                <img src="/images/Windows/noname.png" alt="">
+                <img src="/images/Windows/antivirus.png" alt="">
+                <div class="windows-time">
+                    <script>
+                        var time = new Date();
+                        console.log(
+                            time.toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true })
+                        );
+                        document.write(time.toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true }))
+                    </script>
+                </div>
+            </div>
+        </div>
+    </footer>
+
 </body>
 
 </html>
